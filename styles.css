@@ -1,0 +1,377 @@
+/* ---------- GLOBAL Styling ---------- */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.app {
+  --primaryColor: rgb(105, 185, 133);
+  font-family: "Courier New", sans-serif;
+  min-height: 100%;
+}
+
+#page-wrapper {
+  position: relative;
+  padding-left: 6vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  max-width: 100vw;
+  background-image: linear-gradient(rgba(28, 29, 28), rgb(72, 77, 73));
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  /*font-family: proxima-nova, sans-serif;*/
+
+  color: white;
+  margin-top: 5rem;
+  max-width: 100%;
+}
+
+input {
+  padding: 5px;
+}
+
+button {
+  padding: 5px;
+  font-size: 1.1rem;
+  font-family: proxima-nova, sans-serif;
+}
+
+h2 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.key {
+  font-weight: 600;
+  color: rgb(119, 180, 119);
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+/* ---------- HEADER ---------- */
+
+#header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: black;
+  color: white;
+  padding: 1.5rem 0 0 0;
+  width: 94vw;
+  min-height: 120px;
+  text-align: center;
+}
+
+#header h1 {
+  font-size: 3.75rem;
+  font-weight: 500;
+}
+
+.logo-span {
+  font-weight: 500;
+  color: rgb(119, 180, 119);
+}
+
+#login-button {
+  position: absolute;
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
+  right: 0;
+  bottom: 0;
+  border-radius: 10px;
+  background: var(--primaryColor);
+}
+
+#login-button:hover {
+  cursor: pointer;
+  background: rgb(58, 114, 78);
+  color: white;
+}
+
+/* ---------- SIDEBAR ---------- */
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  z-index: 3;
+  height: 100%;
+  min-height: 100%;
+  width: 6vw;
+  background: rgb(26, 25, 25);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+.sidebar:hover {
+  transition: all 0.1s linear;
+  background: #72c790;
+  min-width: 6vw;
+}
+
+#sidebar-icons {
+  margin-top: 10rem;
+  height: 40vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+#sidebar-icons:hover {
+  cursor: pointer;
+  color: white;
+}
+
+#sidebar-icons i {
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+#sidebar-icons i:hover {
+  transition: all 0.2s linear;
+  font-size: 1.9rem;
+  color: black;
+}
+
+/* ---------- SEARCH FORM ---------- */
+
+#modal-search {
+  position: absolute;
+  top: 10%;
+}
+
+.modal-header {
+  background: var(--primaryColor);
+  color: white;
+}
+
+.modal-body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 10px;
+}
+
+.modal-footer {
+  background: var(--primaryColor);
+}
+
+.btn-submit {
+  background: orange;
+  color: white;
+}
+
+/* ---------- MAIN APP ---------- */
+
+#display-area {
+  margin-top: 7rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+/* ---------- INFO + PLAYER Section ---------- */
+
+#info-player-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#track-data {
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(rgb(60, 70, 61), #0e0b0b);
+  box-shadow: 0px 0px 5px 2px rgb(89, 155, 117);
+  border: 0.25px solid rgba(173, 168, 168, 0.904);
+  border-radius: 20px;
+}
+
+#track-data h2 {
+  text-align: center;
+}
+
+/* ---------- Track Info Section ---------- */
+
+#track-info-wrapper {
+  height: 100%;
+  max-width: 100%;
+}
+
+#info-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
+
+#info-area {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 40vw;
+}
+
+#info-area p {
+  padding-top: 1.5rem;
+}
+
+#info-area p:first-of-type {
+  padding-top: 0;
+}
+
+/* ---------- Audio Player Section ---------- */
+
+#player-area {
+  height: 100%;
+  border-radius: 10px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  padding-right: 20px;
+}
+
+#player-area iframe {
+  border-radius: 10px;
+  max-width: 100%;
+  max-height: 300px;
+}
+
+/* ---------- CHART Section ---------- */
+
+#chart-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+}
+
+#rms-chart-area {
+  max-width: 100%;
+}
+
+#features-chart-area {
+  max-width: 100%;
+}
+
+#features-chart-area:hover {
+  transition: ease-in 0.2s;
+  transform: scale(1.05);
+  cursor: pointer;
+  background: rgba(0, 128, 128, 0.301);
+}
+
+.chart-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+.chart-title {
+  font-size: 2rem;
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
+
+.chart-header p span {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  text-align: left;
+  color: gray;
+}
+
+.chart-info-footnote {
+  font-size: 1rem;
+}
+
+/* ---------- GRID Section ---------- */
+
+#grid-sections-wrapper {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+#grid-sections-area {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  max-width: 100%;
+}
+
+.section {
+  padding-top: 1rem;
+  border: 0.25px solid black;
+  height: 80px;
+  background: #1db954;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.section:hover {
+  cursor: pointer;
+  transition: ease-in 0.2s;
+  transform: scale(1.1);
+}
+
+/* ---------- FOOTER ---------- */
+
+#footer-wrapper {
+  padding-top: 1rem;
+  padding-bottom: 0.75rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: grey;
+}
+
+/* ---------- MEDIA QUERIES ---------- */
+
+/* Extra small devices (phones, 450px and down) */
+@media only screen and (max-width: 600px) {
+}
+
+/* Small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  #info-player-area {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  #player-area {
+    margin-top: 50px;
+    width: auto;
+  }
+
+  #grid-sections-area {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
