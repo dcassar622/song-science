@@ -29,7 +29,7 @@ export class TrackInfoComponent {
     displayArea.innerHTML = `
     <div id='info-column'>
       <div id='info-area'>
-        <div>
+        <div id='key-column'>
           <p><span class='key'> Track name </span></p>
           <p><span class='key'> Artist </span></p>
           <p><span class='key'> Album </span></p>
@@ -37,7 +37,7 @@ export class TrackInfoComponent {
           <p><span class='key'> Tempo </span></p>
           <p><span class='key'> Key </span></p>
         </div>
-        <div>
+        <div id='value-column'>
         <p>${name} </p>
           <p>${artist} </p>
           <p>${album} </p>

@@ -1,3 +1,5 @@
+@import "./src/sass/mixins.scss";
+
 /* ---------- GLOBAL Styling ---------- */
 
 * {
@@ -40,7 +42,7 @@ input {
 
 button {
   padding: 5px;
-  font-size: 1.1rem;
+  font-size: 0.8rem;
   font-family: proxima-nova, sans-serif;
 }
 
@@ -84,10 +86,9 @@ h2 {
 
 #login-button {
   position: absolute;
-  padding-right: 0.5rem;
-  padding-bottom: 0.5rem;
-  right: 0;
-  bottom: 0;
+  padding: 10px;
+  right: 1%;
+  bottom: 5%;
   border-radius: 10px;
   background: var(--primaryColor);
 }
@@ -216,7 +217,7 @@ h2 {
 #info-column {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   height: 100%;
 }
@@ -340,11 +341,10 @@ h2 {
 /* ---------- FOOTER ---------- */
 
 #footer-wrapper {
-  padding-top: 1rem;
-  padding-bottom: 0.75rem;
+  padding: 1rem;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 100vw;
   color: white;
   display: flex;
   justify-content: space-evenly;
@@ -355,15 +355,59 @@ h2 {
 /* ---------- MEDIA QUERIES ---------- */
 
 /* Extra small devices (phones, 450px and down) */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1023px) {
+  #header {
+    text-align: left;
+    padding-left: 40px;
+  }
+
+  #header h1 {
+    font-size: 3rem;
+    font-weight: 500;
+  }
 }
 
 /* Small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-  #info-player-area {
+@media only screen and (max-width: 639px) {
+  #header {
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+  }
+
+  #header h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+  }
+
+  #login-button {
+    position: relative;
+    font-size: 0.65rem;
+    padding: 5px;
+    right: 0;
+  }
+
+  #sidebar-icons i {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  #info-player-area {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #info-column {
+    height: 100%;
+    display: flex;
+  }
+
+  #key-column {
+  }
+
+  #value-column {
   }
 
   #player-area {
@@ -372,6 +416,14 @@ h2 {
   }
 
   #grid-sections-area {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  #footer-wrapper {
+    flex-direction: column;
+  }
+
+  #footer-wrapper h6 {
+    font-size: 0.8rem;
   }
 }

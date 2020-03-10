@@ -26,14 +26,14 @@ export function getHashParams() {
   return hashParams;
 }
 
-/* ---------- PLAYER WIDGET ---------- */
+/* ---------- PLAYER WIDGET ---------- 
 
 /* ---------- main logic (hardwired id for development) ---------- 
 
-let trackId = "67vYdAAM3oGsEImCRfbtsF";
+let trackId = "54X78diSLoUDI3joC2bjMz";
 
 let infoPlayerArea = document.getElementById("info-player-area");
-infoPlayerArea.className = "";
+infoPlayerArea.className = "visible";
 
 //setups up audio player
 let audioPlayer = new AudioPlayer();
