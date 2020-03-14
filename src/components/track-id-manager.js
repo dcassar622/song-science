@@ -3,7 +3,7 @@ export class TrackIDManager {
     let idField = document.getElementById("track-id");
     let nameField = document.getElementById("track-name");
 
-    // checks for ID first, if not then gets id from name
+    // Checks for ID first, if not then gets id from name
     let trackId;
 
     if (idField.value !== "") {
@@ -17,7 +17,7 @@ export class TrackIDManager {
   }
 }
 
-// get the song id from the song name provided by the user
+// Get the song id from the song name provided by the user
 async function getIdFromName(spotify, name) {
   try {
     let data = await spotify.searchTracks(name);

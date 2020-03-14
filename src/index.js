@@ -1,8 +1,9 @@
-import { TrackIDManager } from "./track-id-manager.js";
-import { TrackInfoComponent } from "./track-info.js";
-import { AudioPlayer } from "./audio-player.js";
-import { ChartsComponent } from "./charts-component.js";
-import { TrackSectionsComponent } from "./track-sections.js";
+import { TrackIDManager } from "./components/track-id-manager.js";
+import { TrackInfoComponent } from "./components/track-info.js";
+import { AudioPlayer } from "./components/audio-player.js";
+import { ChartsComponent } from "./components/charts-component.js";
+import { TrackSectionsComponent } from "./components/track-sections.js";
+import { setupAnchorListener } from "./components/sidebar-anchor";
 
 var Spotify = require("spotify-web-api-js");
 var spotify = new Spotify();
@@ -13,7 +14,6 @@ let access_token = params.access_token,
   error = params.error;
 
 spotify.setAccessToken(params.access_token);
-console.log(params.access_token);
 
 export function getHashParams() {
   var hashParams = {};
@@ -26,31 +26,6 @@ export function getHashParams() {
   return hashParams;
 }
 
-/* ---------- PLAYER WIDGET ---------- 
-
-/* ---------- main logic (hardwired id for development) ---------- 
-
-let trackId = "54X78diSLoUDI3joC2bjMz";
-
-let infoPlayerArea = document.getElementById("info-player-area");
-infoPlayerArea.className = "visible";
-
-//setups up audio player
-let audioPlayer = new AudioPlayer();
-audioPlayer.setupPlayer(trackId);
-
-//sets up and displays general track info
-let trackInfoComponent = new TrackInfoComponent(spotify, trackId);
-trackInfoComponent.getTrackInfo();
-
-//sets up and displays charts
-let chartsComponent = new ChartsComponent(spotify, trackId);
-chartsComponent.setupCharts();
-
-// sets up and displays track audio analysis
-let trackSectionsComponent = new TrackSectionsComponent(spotify, trackId);
-trackSectionsComponent.getSectionsData(); */
-
 /* ---------- main logic ---------- */
 const searchForm = document.getElementById("search-form");
 const trackDataArea = document.getElementById("track-data");
@@ -59,9 +34,16 @@ const loginButton = document.getElementById("login-button");
 
 if (params.access_token) {
   loginButton.innerHTML = "Logged In";
+} else {
+  const loginMessageSection = document.getElementById("login-message-section");
+  loginMessageSection.innerHTML = `<h2>Welcome to Song Science!</h2>
+          <br />
+          <h4>Please log in to your Spotify account using the button above to start using the app...</h4>
+            <br />
+          <h5><sup>*Due to Spotify's API security restrictions, only users with a premium account can access and use the data</h5></sup> `;
 }
 
-// get track data and display it
+// Get track data and display it
 searchForm.addEventListener("submit", e => {
   e.preventDefault();
   trackDataArea.className = "wrapper";
@@ -71,25 +53,33 @@ searchForm.addEventListener("submit", e => {
     setupData(trackId);
   });
 
+  // Close modal and clear search form
   $("#modal-search").modal("hide");
+  document.getElementById("track-name").value = "";
+  document.getElementById("track-id").value = "";
 });
 
 function setupData(trackId) {
   infoPlayerArea.className = "";
 
-  //setups up audio player
+  // Sets up audio player
   let audioPlayer = new AudioPlayer();
   audioPlayer.setupPlayer(trackId);
 
-  // sets up and displays track info
+  // Sets up and displays track info
   let trackInfoComponent = new TrackInfoComponent(spotify, trackId);
   trackInfoComponent.getTrackInfo();
 
-  // sets up and displays track sections
+  // Sets up and displays track sections
   let trackDataComponent = new TrackSectionsComponent(spotify, trackId);
   trackDataComponent.getSectionsData();
 
-  //sets up and displays charts
+  // Sets up and displays charts
   let chartsComponent = new ChartsComponent(spotify, trackId);
   chartsComponent.setupCharts();
+
+  // Set up event listeners for sidebar anchor icons (anchor tags)
+  setupAnchorListener("sidebar-info", "track-data");
+  setupAnchorListener("sidebar-chart", "chart-wrapper");
+  setupAnchorListener("sidebar-grid", "grid-sections-wrapper");
 }

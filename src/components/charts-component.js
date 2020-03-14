@@ -117,7 +117,6 @@ export class ChartsComponent {
     let valence = trackFeatures.valence;
 
     let featuresArray = [energy, danceability, valence];
-    console.log(featuresArray);
 
     let featuresChartHeader = document.getElementById("features-chart-header");
     featuresChartHeader.innerHTML = `

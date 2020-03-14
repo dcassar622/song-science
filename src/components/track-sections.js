@@ -8,7 +8,6 @@ export class TrackSectionsComponent {
     let trackInfo = await this.spotify.getAudioAnalysisForTrack(this.trackId);
 
     let sections = trackInfo.sections;
-    console.log(sections);
 
     let loudnessAvg = getLoudnessAvg(sections);
 
@@ -17,7 +16,6 @@ export class TrackSectionsComponent {
     /* ---------- Grid Area ----------- */
 
     let gridSectionsHeader = document.getElementById("grid-sections-header");
-    console.log(gridSectionsHeader);
     // sset the header/title for the sections/grid area of the app
     gridSectionsHeader.innerHTML = `
       <p class='chart-header'> 

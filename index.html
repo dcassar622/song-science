@@ -7,7 +7,7 @@
     <title>Song Science</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel='stylesheet' href='styles.css'>
+    <link rel='stylesheet' href='./src/styling/styles.css'>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
@@ -19,9 +19,9 @@
         <div class='sidebar'>
           <div id="sidebar-icons" class="">
             <a href='#modal-search' data-toggle='modal'><i id='sidebar-search' class="fas fa-search"></i></a>
-            <a href='#info-player-area'><i id='sidebar-info' class="fas fa-info"></i></a>
-            <a href='#chart-wrapper'><i id='sidebar-chart' class="fas fa-chart-bar"></i></a>
-            <a href='#grid-sections-wrapper'><i id='sidebar-grid' class="fas fa-th"></i></a>
+            <a><i id='sidebar-info' class="fas fa-info"></i></a>
+            <a><i id='sidebar-chart' class="fas fa-chart-bar"></i></a>
+            <a><i id='sidebar-grid' class="fas fa-th"></i></a>
           </div>
         </div>
 
@@ -32,6 +32,11 @@
             <button id='login-button'>Login With Spotify</button>
           </a>
         </nav>
+
+        <!-- LOG IN MESSAGE-->
+        <section id='login-message-section'>
+
+        </section>
 
         <!-- search form --> 
         <div id='modal-search' class='modal fade' role='dialog' data-dismiss="modal">

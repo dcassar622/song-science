@@ -63,13 +63,6 @@ function getAlbum(albumObject) {
   return album;
 }
 
-//get artwork
-function getArtwork(albumObject) {
-  let artworkUrl = albumObject.album.images[0].url;
-  let artwork = artworkUrl.replace(/^https?\:\/\//i, "");
-  return artwork;
-}
-
 // rounds the tempo value from the api to the nearest whole number
 function getTempo(tempoFloat) {
   let tempo = Math.round(tempoFloat);
